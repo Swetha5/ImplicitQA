@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<meta property='og:title' content='ImplicitQA: Going beyond frames towards Implicit Video Reasoning'/>
+<meta property='og:image' content=''/>
+<meta property='og:description' content=''/>
+<meta property='og:url' content='https://github.com/UCF-CRCV/ImplicitQA'/>
+<meta property='og:image:width' content='1200' />
+<meta property='og:image:height' content='663' />
+<meta property="og:type" content='website'/>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="ImplicitQA: Going beyond frames towards Implicit Video Reasoning">
+  <meta name="keywords" content="Implicit Reasoning Video QA">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ImplicitQA: Going beyond frames towards Implicit Video Reasoning</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="./static/images/implicit_icon.png">
+
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/tab_gallery.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+  <link rel="stylesheet" href="juxtapose/css/juxtapose.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/magnifier.js"></script>
+  <link href="https://fonts.cdnfonts.com/css/menlo" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/image_card_fader.css">
+  <link rel="stylesheet" href="./static/css/image_card_slider.css">
+
+</head>
+
+<style>
+  @import url('https://fonts.cdnfonts.com/css/menlo');
+</style>
+
+
+<body>
+  <section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">ImplicitQA: Going beyond frames towards Implicit Video Reasoning</h1>
+          <div class="is-size-5 publication-authors">
+              <span class="author-block"><a href="https://swetha5.github.io/">Sirnam Swetha</a>,</span>
+              <span class="author-block"><a href="https://www.rohitg.xyz/">Rohit Gupta</a>,</span>
+              <span class="author-block"><a href="https://www.linkedin.com/in/parth-parag-kulkarni-739302150">Parth Parag Kulkarni</a>,</span>
+              <span class="author-block"><a href="https://davidshatwell.com/">David G Shatwell</a>,</span>
+              <span class="author-block"><a href="https://jachansantiago.com/">Jeffrey A Chan Santiago</a>,</span>
+              <span class="author-block"><a href="https://nylesiddiqui.github.io/">Nyle Siddiqui</a>,</span>
+              <span class="author-block"><a href="https://joefioresi718.github.io/">Joseph Fioresi</a>,</span>
+              <span class="author-block"><a href="https://scholar.google.com/citations?user=p8gsO3gAAAAJ&hl=en&oi=ao">Mubarak Shah</a></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">CRCV, University of Central Florida</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2506.21742" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            </span>
+                <span class="link-block">
+                  <a href="https://huggingface.co/datasets/ucf-crcv/ImplicitQA" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-database"></i>
+                    </span>
+                    <span>Dataset</span>
+                  </a>
+                </span>
+              <span class="link-block">
+                <a href="https://github.com/UCF-CRCV/ImplicitQA" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+              <span class="link-block">
+                <a href="#bibtex"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-obp"></i>
+                  </span>
+                  <span>BibTex</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <p align="justify">
+            ImplicitQA is the first benchmark designed to test a model’s ability to perform implicit reasoning in videos - challenging systems to infer what’s not explicitly shown on screen, much like how humans naturally understand movies and TV shows. While existing VideoQA datasets tend to focus on questions that can be answered from what is directly visible in a frame or clip, ImplicitQA goes a step further. It evaluates deeper narrative understanding by requiring models to reason about hidden causality, off-screen actions, social cues, and commonsense inferences that unfold across time.
+            Our dataset is carefully annotated by graduate researchers with expertise in vision-language models, ensuring high-quality questions that reflect the kinds of assumptions and contextual leaps humans make without even thinking. The benchmark is deliberately challenging: even state-of-the-art models like OpenAI’s GPT-O3 achieve only 64% accuracy, compared to 85% for non-expert human annotators. This significant gap highlights how far current systems are from truly understanding the subtle, implicit logic that underpins real-world video content.
+
+            <!-- <br> -->
+
+    <div class="column">
+        <div style="text-align:center;" >
+            <!-- <h4 class="subtitle has-text-centered"> -->
+            <img src="./static/images/ImplicitQA_Teaser_v3_1.png", width="100%">
+            <!-- </h4> -->
+            
+            <div class="content has-text-justified">
+                <p align="justify"> <b> <span>Figure</span></b>: <b> <i>ImplicitQA</i></b> examples, each targeting a distinct implicit-reasoning dimension. (a) Lateral spatial reasoning - identifying the toy opposite the wizard clock by mentally mapping objects across the scene. (b) Motion and trajectory dynamics - inferring that black bullets move away from Mario by integrating actions and character positions. (c) Inferred counting - determining which animal is the third to leave a bridge by tracking sequential departures that are never fully visible onscreen. Models that excel at explicit perception often fail on these tasks, highlighting the need for benchmarks that probe deeper narrative understanding.</p>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+    </div>
+  </div>
+
+</section>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop has-text-centered">
+                 <!-- Visual Effects. -->
+      <h2 class="title is-3">Abstract</h2>
+      <div class="content has-text-justified">
+        <p>
+            Video QA has made significant strides by leveraging multimodal learning to align visual and textual modalities. However, current benchmarks overwhelmingly focus on questions answerable through explicit visual content - actions, objects & events directly observable within individual frames or short clips. In contrast, creative and cinematic videos - such as movies, TV shows, and narrative-driven content - employ storytelling techniques that deliberately omit certain depictions, requiring viewers to infer motives, causality, and relationships across discontinuous frames. Humans naturally excel at such implicit reasoning, seamlessly integrating information across time and context to construct coherent narratives. Current VideoQA systems and benchmarks fail to capture this essential dimension of human-like understanding. To bridge this gap, we present <b> <i>ImplicitQA</i></b>, a novel benchmark specifically designed to test models on implicit reasoning. It comprises 1K meticulously annotated QA pairs derived from 320+ high-quality creative video clips, systematically categorized into key reasoning dimensions: lateral and vertical spatial reasoning, depth and proximity, viewpoint and visibility, motion and trajectory, causal and motivational reasoning, social interactions, physical context, and inferred counting. These annotations are deliberately challenging, crafted by authors ensuring high-quality. Our extensive evaluations on leading VideoQA models reveals performance degradation, underscoring their reliance on surface-level visual cues and highlighting the difficulty of implicit reasoning. Performance variations across models further illustrate the complexity and diversity of the challenges presented by <b> <i>ImplicitQA</i></b>. By releasing both the dataset and our data collection framework, we aim to stimulate further research and development in the community.
+            <br>
+        </p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3"><i>ImplicitQA</i> raises a new research challenge: to build models capable of deep temporal reasoning and implicit inference across frames.</h2>
+        <div class="content has-text-justified">
+          <p>
+          <h5> <b> Main contributions: </b></h5>
+           <ul>
+              <li>We introduce <b><i>ImplicitQA</i></b>, the first benchmark designed to test implicit reasoning in VideoQA, focusing on questions that require inference beyond direct visual observations.</li>
+              <li>We manually curate a high-quality dataset of <i>1k</i> question-answer pairs across <i>320+</i> diverse video clips, with annotation conducted by experts in computer vision to ensure rigor and relevance.</li>
+              <li>We define a taxonomy of <i>9</i> categories, covering lateral spatial reasoning, depth and proximity, causal inference, social dynamics, and more, to facilitate targeted analysis and benchmarking.</li>
+              <li><b><i>ImplicitQA</i></b> covers 15 diverse genres, spans 7 decades (from the 1960s to today), and includes both animated and live-action media.</li>
+              <li>We benchmark SoTA VideoLLMs on <b><i>ImplicitQA</i></b> and reveal significant performance degradation, highlighting the gap between current capabilities and true narrative understanding.</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+</section>
+
+<section class="section">
+  
+    <!--/ Matting. -->
+    <div class="container is-max-desktop">
+    
+    <!-- Latent space editing applications -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">ImplicitQA Dataset Overview</h2>
+        
+        <div class="content has-text-centered">
+            <img src="./static/images/implicitqa_data_comp.png"  style="max-width:100%">
+                                  <p class="content has-text-justified">
+            <b>Table:</b> <p>
+                Comparison of <b><i>ImplicitQA</i></b> with existing VideoQA datasets. <b><i>ImplicitQA</i></b> uniquely focuses on implicit reasoning with visual content, annotated end-to-end by domain experts.
+          </p>
+        </div>
+
+        <div class="content has-text-justified">
+            <p> <b><i>ImplicitQA</i></b> has nine categories varying across 15 genres with live-action and animation media types. </p>
+            <div style="display: flex; justify-content: center; align-items: center; gap: 70px;">
+              <img src="./static/images/pi_categories.png" width="30%" height="30%">
+              <img src="./static/images/distribution_pGenre.png" width="30%" height="30%">
+              <img src="./static/images/distribution_mediatype.png.png" width="30%" height="30%">
+            </div>
+              <p class="carousel-caption" style="width: 90%; margin-left: auto; margin-right: auto; text-align: center;">
+                <b><i>Left:</i></b> Distribution across categories. <b><i>Middle:</i></b> <b><i>ImplicitQA</i></b> statistics across primary genres for the top seven most frequent categories.<b><i>Right:</i></b> Distribution of Media Type.
+              </p>
+
+        <br><br>
+        </div>
+
+      </div>
+    </div>
+
+            <!--/ Matting. -->
+    <div class="container is-max-desktop">
+
+    <!-- Latent space editing applications -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">ImplicitQA Curation Pipeline</h2>
+
+        <div class="content has-text-centered">
+            <img src="./static/images/implicitqa_pipeline.png"  style="max-width:100%">
+                                  <p class="content has-text-justified">
+
+            <div class="content has-text-justified">
+                <p align="justify"> <b> <span>Figure</span></b>:
+                We begin by selecting creative video clips and download them. An expert-annotator pool then uses our FrameQuiz Annotation Tool to
+                    (1) mark temporal segments, (2) add a multiple-choice question and its correct answer for the segment, and
+                    (3) craft plausible distractor options. These annotated clips form the raw ImplicitQA Dataset.
+                    Next, a non-expert annotator pool employs the ImplicitEval Annotation Tool to answer each question, yielding a human baseline accuracy score.
+                    We run GPT-4.1 on the dataset to automatically assign initial category tags, which are then relabeled by the expert annotators.
+                </p>
+            </div>
+
+      </div>
+          
+      </div>
+    </div>
+
+    <br><br>
+
+    <div class="columns is-centered">
+      <div class="column is-full-width has-text-centered">
+        <h2 class="title is-3">Experimental Results</h2>
+
+          <h3 class="title is-4 has-text-justified">Performance of Open- and Closed-Source Models on ImplicitQA</h3>
+
+        <div class="content has-text-centered">
+                      <p style="text-align: justify;">
+
+         Results on ImplicitQA, <b>best</b> and <u>second best</u> results are highlighted. </p>
+
+        <img src="./static/images/iqa_results.png"  style="max-width:100%">
+    </div>
+
+    <br/>
+          <h3 class="title is-4 has-text-justified">Impact of model scale on ImplicitQA</h3>
+
+          <div class="content has-text-centered">
+                      <p style="text-align: justify;">
+
+         <b><i>Left:</i></b> Overall performance vs Model Scale, <b><i>Right:</i></b> Category-wise performance vs Model Scale. </p>
+
+        <img src="./static/images/iqa_trends.png.png"  style="max-width:100%">
+    </div>
+
+    </div>
+ </div>
+
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title"><a id="bibtex">BibTeX</a></h2>
+    <pre><code>@article{swetha2025implicitqa,
+                      title={ImplicitQA: Going beyond frames towards Implicit Video Reasoning},
+                      author={Swetha, Sirnam and Gupta, Rohit and Kulkarni, Parth Parag and Shatwell, David G and Santiago, Jeffrey A Chan and Siddiqui, Nyle and Fioresi, Joseph and Shah, Mubarak},
+                      journal={arXiv preprint arXiv:2506.21742},
+                      year={2025}
+                    }
+</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Website adapted from the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies source code</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script src="juxtapose/js/juxtapose.js"></script>
+
+<script>
+var slider;
+let origOptions = {
+    "makeResponsive": true,
+    "showLabels": true,
+    "mode": "horizontal",
+    "showCredits": true,
+    "animate": true,
+    "startingPosition": "50"
+};
+
+const juxtaposeSelector = "#juxtapose-embed";
+const transientSelector = "#juxtapose-hidden";
+
+  inputImage.src = "./static/images/".concat(name, "_input.jpg")
+  outputImage.src = "./static/images/".concat(name, "_output.jpg")
+
+  let images = [inputImage, outputImage];
+  let options = slider.options;
+  options.callback = function(obj) {
+      var newNode = document.getElementById(obj.selector.substring(1));
+      var oldNode = document.getElementById(juxtaposeSelector.substring(1));
+      console.log(obj.selector.substring(1));
+      console.log(newNode.children[0]);
+      oldNode.replaceChild(newNode.children[0], oldNode.children[0]);
+      //newNode.removeChild(newNode.children[0]);
+      
+  };
+  
+  slider = new juxtapose.JXSlider(transientSelector, images, options);
+};
+
+
+
+(function() {
+    slider = new juxtapose.JXSlider(
+        juxtaposeSelector, origImages, origOptions);
+    //document.getElementById("left-button").onclick = replaceLeft;
+    //document.getElementById("right-button").onclick = replaceRight;
+})();
+  // Get the image text
+  var imgText = document.getElementById("imgtext");
+  // Use the same src in the expanded image as the image being clicked on from the grid
+  // expandImg.src = imgs.src;
+  // Use the value of the alt attribute of the clickable image as text inside the expanded image
+  imgText.innerHTML = name;
+  // Show the container element (hidden with CSS)
+  // expandImg.parentElement.style.display = "block";
+
+$(".flip-card").click(function() {
+            console.log("fading in")
+            div_back = $(this).children().children()[1]
+            div_front = $(this).children().children()[0]
+            // console.log($(this).children("div.flip-card-back"))
+            console.log(div_back)
+            $(div_front).addClass("out");
+            $(div_front).removeClass("in");
+
+            $(div_back).addClass("in");
+            $(div_back).removeClass("out");
+
+});
+
+$(".flip-card").mouseleave(function() {
+            console.log("fading in")
+            div_back = $(this).children().children()[1]
+            div_front = $(this).children().children()[0]
+            // console.log($(this).children("div.flip-card-back"))
+            console.log(div_back)
+            $(div_front).addClass("in");
+            $(div_front).removeClass("out");
+
+            $(div_back).addClass("out");
+            $(div_back).removeClass("in");
+
+});
+
+</script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>    
+
+</body>
+</html>
